@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TINDI BANDI</title>
+  
+    <link rel="stylesheet" href="tea.css">
+    
+</head>
+<body>
+   
+    <div class="image-container">
+        
+        <div class="overlay-text">   
+           
+        </head>
+        <body>
+          <h1 align="center">TINDI BANDI</h1>
+          <div class="container">
+            <label>
+              <input type="radio" name="drink" value="tea"> Tea
+            </label>
+            <label>
+              <input type="radio" name="drink" value="coffee"> Coffee
+            </label>
+            
+            <label>
+                <input type="radio" name="drink" value="Badam Milk"> Badam Milk
+              </label>
+              <label>
+                <input type="radio" name="drink" value="Boost"> Boost
+              </label><br><br>
+              
+            <button onclick="countDrink()">Add Drink</button>
+            <button onclick="total()">Total Bill</button>
+            <p>Tea Count: <span id="teaCount" style="color: rgb(93, 10, 10);">0</span> | Tea Cost: <span id="tottea" style="color: rgb(93, 10, 10);">0</span></p>
+            <p>Coffee Count: <span id="coffeeCount" style="color: rgb(93, 10, 10);">0</span>| Coffee Cost: <span id="totcoffee" style="color: rgb(93, 10, 10);">0</span></p>
+            <p>Badam Milk Count: <span id="badamCount" style="color: rgb(93, 10, 10);">0</span>| Badam Milk Cost: <span id="totbadam" style="color: rgb(93, 10, 10);">0</span></p>
+            <p>Boost Count: <span id="boostCount" style="color: rgb(93, 10, 10);">0</span>| Boost Cost: <span id="totboost" style="color: rgb(93, 10, 10);">0</span></p>
+            <p>Total Bill: <span id="totCount" style="color: rgb(93, 10, 10);">0</span></p>
+            
+
+          </div>
+         <script>
+            let teaCount = 0;
+            let coffeeCount = 0;
+            let badamCount = 0;
+            let boostCount = 0;
+            let tottea=0; 
+            let totcoffee=0;
+            let totbadam=0;
+            let totboost=0;
+
+            function countDrink() {
+              const selectedDrink = document.querySelector('input[name="drink"]:checked');
+              if (selectedDrink) {
+                const drinkType = selectedDrink.value;
+                if (drinkType === 'tea') {
+                  teaCount++;
+                  document.getElementById('teaCount').textContent = teaCount; 
+                  tottea=tottea+10;
+                  document.getElementById('tottea').textContent=tottea;
+                } else if (drinkType === 'coffee') {
+                  coffeeCount++;
+                  document.getElementById('coffeeCount').textContent = coffeeCount;
+                  totcoffee=totcoffee+12;
+                  document.getElementById('totcoffee').textContent=totcoffee;
+                }else if (drinkType === 'Badam Milk') {
+                  badamCount++;
+                  document.getElementById('badamCount').textContent = badamCount;
+                  totbadam=totbadam+15;
+                  document.getElementById('totbadam').textContent=totbadam;
+                }else if (drinkType === 'Boost') {
+                  boostCount++;
+                  document.getElementById('boostCount').textContent = boostCount;
+                  totboost=totboost+20;
+                  document.getElementById('totboost').textContent=totboost;
+                }
+              }
+              
+            }
+            function total(){
+                let totCount=0;
+                totCount=tottea+totcoffee+totbadam+totboost;
+                document.getElementById('totCount').textContent = totCount;
+            }
+          </script>
+        </body>
+        </html>
+    </div>
+
+    
+</body>
+</html>
